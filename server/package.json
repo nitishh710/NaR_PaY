@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json.schemastore.org/package",
+  "name": "credit-wallet-server",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/server.js",
+
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
+  },
+
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.8.7",
+    "nodemailer": "^6.10.1",
+    "qrcode": "^1.5.4",
+    "razorpay": "^2.9.6"
+  },
+
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
