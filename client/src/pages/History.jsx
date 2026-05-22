@@ -38,7 +38,7 @@ function History() {
 
         const response =
           await axios.get(
-            "http://localhost:5000/api/transactions/history",
+            "https://narpay.up.railway.app/api/transactions/history",
             {
               headers: {
                 Authorization:

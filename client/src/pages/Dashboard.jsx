@@ -60,7 +60,7 @@ function Dashboard() {
 
         const response =
           await axios.get(
-            "http://localhost:5000/api/wallet/profile",
+            "https://narpay.up.railway.app/api/wallet/profile",
             {
               headers: {
                 Authorization:
@@ -85,7 +85,7 @@ function Dashboard() {
 
         const response =
           await axios.get(
-            "http://localhost:5000/api/transactions/history",
+            "https://narpay.up.railway.app/api/transactions/history",
             {
               headers: {
                 Authorization:
@@ -121,7 +121,7 @@ const handleSetPin =
 
       const response =
         await axios.post(
-          "http://localhost:5000/api/transactions/set-pin",
+          "https://narpay.up.railway.app/api/transactions/set-pin",
           {
             pin,
           },
