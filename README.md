@@ -96,11 +96,8 @@ This creates a POS-style payment experience inside the wallet system.
 - Nodemailer
 - bcrypt
 
----
-
 # Project Structure
 
-```bash
 NARpay/
 
 ├── client/
@@ -171,9 +168,9 @@ Face Recognition Login
 Merchant Dashboard
 Wallet to Bank Transfer
 UPI Integration
-Developed By
 
-by :- Nitish
+
+Developed By:- Nitish
 
 License
 
