@@ -378,9 +378,9 @@ function Transfer() {
             }}
           >
             <QRScanner
-              onScan={(data) => {
+              onScan={(value) => {
                 setReceiverWalletId(
-                  data
+                  value
                 );
 
                 setShowScanner(

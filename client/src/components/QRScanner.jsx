@@ -1,5 +1,4 @@
-import { QrReader }
-from "react-qr-reader";
+import { Scanner } from "@yudiel/react-qr-scanner";
 
 function QRScanner({
   onScan,
@@ -10,24 +9,26 @@ function QRScanner({
         width: "100%",
       }}
     >
-      <QrReader
-        constraints={{
-          facingMode:
-            "environment",
-        }}
-        onResult={(
-          result,
-          error
-        ) => {
-          if (!!result) {
+      <Scanner
+        onScan={(result) => {
+          if (
+            result?.[0]
+              ?.rawValue
+          ) {
+            console.log(
+              result[0]
+                .rawValue
+            );
+
             onScan(
-              result?.text
+              result[0]
+                .rawValue
             );
           }
         }}
-        style={{
-          width: "100%",
-        }}
+        onError={(error) =>
+          console.log(error)
+        }
       />
     </div>
   );
