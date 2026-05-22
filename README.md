@@ -98,24 +98,31 @@ This creates a POS-style payment experience inside the wallet system.
 
 # Project Structure
 
+```bash
 NARpay/
-
+│
 ├── client/
-│   ├── src/
 │   ├── public/
+│   ├── src/
 │   └── package.json
 │
 ├── server/
 │   ├── src/
+│   │   ├── config/
 │   │   ├── controllers/
-│   │   ├── routes/
-│   │   ├── models/
 │   │   ├── middleware/
+│   │   ├── models/
+│   │   ├── routes/
 │   │   ├── services/
-│   │   └── utils/
+│   │   ├── utils/
+│   │   ├── app.js
+│   │   └── server.js
 │   │
-│   └── package.json
+│   ├── package.json
+│   └── .env
 │
+├── .gitignore
+├── package.json
 └── README.md
 
 
