@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@yudiel/react-qr-scanner": "^2.6.0"
+    "@yudiel/react-qr-scanner": "^2.6.0",
+    "nodemailer": "^8.0.7"
   }
 }
