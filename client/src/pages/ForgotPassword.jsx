@@ -2,7 +2,7 @@ import {
   useState,
 } from "react";
 
-import API from "../utils/api";
+import API from "../services/api";
 
 function ForgotPassword() {
 
