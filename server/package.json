@@ -3,12 +3,12 @@
   "name": "credit-wallet-server",
   "version": "1.0.0",
   "type": "module",
-  "main": "src/server.js",
+  "main": "server.js",
 
-  "scripts": {
-    "dev": "nodemon",
-    "start": "node src/server.js"
-  },
+ "scripts": {
+  "dev": "nodemon src/server.js",
+  "start": "node src/server.js"
+},
 
   "dependencies": {
     "bcrypt": "^5.1.1",
