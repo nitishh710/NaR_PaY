@@ -8,8 +8,16 @@ import transactionRoutes from "./routes/transactionRoutes.js";
 const app = express();
 
 app.use(cors({
-    origin:
+    origin: [
+      "http://localhost:5173",
       "https://narpay-nitishh710s-projects.vercel.app",
+    ],
+    methods: [
+      "GET",
+      "POST",
+      "PUT",
+      "DELETE",
+    ],
     credentials: true,
   }));
 
