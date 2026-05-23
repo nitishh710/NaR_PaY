@@ -2,7 +2,7 @@ import {
   useState,
 } from "react";
 
-import axios from "axios";
+import API from "../utils/api";
 
 function ForgotPassword() {
 
@@ -20,48 +20,52 @@ function ForgotPassword() {
   const [step, setStep] =
     useState(1);
 
-  const sendOtp =
-    async () => {
-      try {
-        await axios.post(
-          `${import.meta.env.VITE_API_URL}/api/auth/forgot-password`,
-          { email }
-        );
+const sendOtp = async () => {
+  try {
 
-        alert("OTP Sent");
-        setStep(2);
+    await API.post(
+      "/auth/forgot-password",
+      { email }
+    );
 
-      } catch (error) {
-        alert(
-          error.response?.data
-            ?.message
-        );
+    alert("OTP Sent");
+    setStep(2);
+
+  } catch (error) {
+
+    alert(
+      error.response?.data?.message ||
+      "Failed to send OTP"
+    );
+
+  }
+};
+
+const resetPassword = async () => {
+  try {
+
+    await API.post(
+      "/auth/reset-password",
+      {
+        email,
+        otp,
+        newPassword,
       }
-    };
+    );
 
-  const resetPassword =
-    async () => {
-      try {
-        await axios.post(
-          `${import.meta.env.VITE_API_URL}/api/auth/reset-password`,
-          {
-            email,
-            otp,
-            newPassword,
-          }
-        );
+    alert(
+      "Password Reset Successful"
+    );
 
-        alert(
-          "Password Reset Successful"
-        );
+  } catch (error) {
 
-      } catch (error) {
-        alert(
-          error.response?.data
-            ?.message
-        );
-      }
-    };
+    alert(
+      error.response?.data?.message ||
+      "Reset Failed"
+    );
+
+  }
+};
 
   return (
     <div
