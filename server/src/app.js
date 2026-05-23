@@ -38,4 +38,8 @@ app.use(
   transactionRoutes
 );
 
+app.get("/", (req, res) => {
+  res.send("NARPAY API RUNNING");
+});
+
 export default app;
