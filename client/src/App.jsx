@@ -14,7 +14,6 @@ import GetAmount from "./pages/GetAmount";
 
 function App() {
   return (
-    <BrowserRouter>
       <Routes>
 
         {/* DEFAULT ROUTE */}
@@ -54,7 +53,6 @@ function App() {
         />
 
       </Routes>
-    </BrowserRouter>
   );
 }
 
