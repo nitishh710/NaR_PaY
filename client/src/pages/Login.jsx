@@ -232,6 +232,20 @@ function Login() {
             Register
           </Link>
         </p>
+        <p
+  onClick={() =>
+    navigate(
+      "/forgot-password"
+    )
+  }
+  style={{
+    marginTop: "15px",
+    color: "#60a5fa",
+    cursor: "pointer",
+  }}
+>
+  Forgot Password?
+</p>
       </motion.div>
     </div>
   );

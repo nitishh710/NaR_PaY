@@ -44,6 +44,9 @@ const userSchema =
       default: "",
       },
 
+      resetOtp: String,
+      resetOtpExpire: Date,
+
       otp: {
         type: String,
         default: null

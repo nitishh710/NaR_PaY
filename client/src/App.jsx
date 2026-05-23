@@ -11,7 +11,7 @@ import Dashboard from "./pages/Dashboard";
 import Transfer from "./pages/Transfer";
 import History from "./pages/History";
 import GetAmount from "./pages/GetAmount";
-
+import ForgotPassword from "./pages/ForgotPassword";
 function App() {
   return (
       <Routes>
@@ -50,6 +50,11 @@ function App() {
         <Route
           path="/get-amount"
           element={<GetAmount />}
+        />
+
+        <Route
+          path="/forgot-password"
+          element={<ForgotPassword />}
         />
 
       </Routes>
