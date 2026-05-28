@@ -42,7 +42,7 @@ function Register() {
 
         const response =
           await axios.post(
-            "https://narpay.up.railway.app/api/auth/register",
+            "https://narpay.onrender.com/api/auth/register",
             formData
           );
 

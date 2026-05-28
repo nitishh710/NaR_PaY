@@ -24,7 +24,7 @@ function Profile() {
 
         const response =
           await axios.post(
-            "https://narpay.up.railway.app/api/transactions/set-pin",
+            "https://narpay.onrender.com/api/transactions/set-pin",
             { pin },
             {
               headers: {

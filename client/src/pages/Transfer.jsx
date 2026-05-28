@@ -60,7 +60,7 @@ function Transfer() {
 
       const response =
         await axios.get(
-          `https://narpay.up.railway.app/api/wallet/search/${receiverWalletId}`,
+          `https://narpay.onrender.com/api/wallet/search/${receiverWalletId}`,
           {
             headers: {
               Authorization:
@@ -99,7 +99,7 @@ function Transfer() {
         );
 
       await axios.post(
-        "https://narpay.up.railway.app/api/transactions/send-otp",
+        "https://narpay.onrender.com/api/transactions/send-otp",
         {},
         {
           headers: {
@@ -135,7 +135,7 @@ function Transfer() {
 
         const response =
           await axios.post(
-            "https://narpay.up.railway.app/api/transactions/transfer",
+            "https://narpay.onrender.com/api/transactions/transfer",
             {
               receiverWalletId,
               amount,
@@ -182,7 +182,7 @@ function Transfer() {
           );
 
         await axios.post(
-          "https://narpay.up.railway.app/api/transactions/send-otp",
+          "https://narpay.onrender.com/api/transactions/send-otp",
           {},
           {
             headers: {
@@ -212,7 +212,7 @@ function Transfer() {
           );
 
         await axios.post(
-          "https://narpay.up.railway.app/api/wallet/reset-pin",
+          "https://narpay.onrender.com/api/wallet/reset-pin",
           {
             otp: resetOTP,
             newPin,

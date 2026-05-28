@@ -18,7 +18,7 @@ function Login() {
   const handleLogin = async () => {
     try {
       const response = await axios.post(
-        "https://narpay.up.railway.app/api/auth/login",
+        "https://narpay.onrender.com/api/auth/login",
         form
       );
 

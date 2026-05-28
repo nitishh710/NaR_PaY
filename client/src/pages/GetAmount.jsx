@@ -64,7 +64,7 @@ function GetAmount() {
 
         const response =
           await axios.post(
-            "https://narpay.up.railway.app/api/transactions/collect-payment",
+            "https://narpay.onrender.com/api/transactions/collect-payment",
             {
               senderWalletId,
               amount,
