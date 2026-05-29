@@ -13,18 +13,6 @@ console.log(
   !!process.env.EMAIL_PASS
 );
 
-import nodemailer from "nodemailer";
-
-console.log(
-"EMAIL USER:",
-process.env.EMAIL_USER
-);
-
-console.log(
-"EMAIL PASS EXISTS:",
-!!process.env.EMAIL_PASS
-);
-
 const transporter =
 nodemailer.createTransport({
 
@@ -78,6 +66,16 @@ async(email,otp)=>{
 
 try{
 
+console.log(
+"Sending OTP to:",
+email
+);
+
+console.log(
+"Generated OTP:",
+otp
+);
+
 await transporter.sendMail({
 
 from:
@@ -86,27 +84,25 @@ process.env.EMAIL_USER,
 to:email,
 
 subject:
-"NARpay Password Reset OTP",
+"NARpay OTP Verification",
 
 html:`
 
-<div
-style="
+<div style="
 font-family:Arial;
 padding:20px;
 ">
 
 <h2>
-NARpay OTP Verification
+
+NARpay Secure OTP
+
 </h2>
 
-<p>
-
-Your OTP is:
-
-</p>
-
-<h1>
+<h1 style="
+color:#7c3aed;
+letter-spacing:4px;
+">
 
 ${otp}
 
@@ -114,7 +110,7 @@ ${otp}
 
 <p>
 
-Do not share this OTP.
+This OTP will expire in 5 minutes.
 
 </p>
 
@@ -125,75 +121,20 @@ Do not share this OTP.
 });
 
 console.log(
-"OTP SENT"
+"OTP EMAIL SENT SUCCESSFULLY"
 );
 
-}catch(err){
+}catch(error){
 
 console.log(
 "MAIL ERROR:",
-err
+error
 );
 
-throw err;
+throw error;
 
 }
 
 };
 
 export default transporter;
-
-export const sendOTPEmail =
-  async (email, otp) => {
-    try {
-      console.log(
-        "Sending OTP to:",
-        email
-      );
-
-      console.log(
-        "Generated OTP:",
-        otp
-      );
-
-      await transporter.sendMail({
-        from:
-          process.env.EMAIL_USER,
-
-        to: email,
-
-        subject:
-          "NARpay OTP Verification",
-
-        html: `
-          <div style="
-            font-family: Arial;
-            padding:20px;
-          ">
-            <h2>
-              NARpay Secure OTP
-            </h2>
-
-            <h1 style="
-              color:#7c3aed;
-              letter-spacing:4px;
-            ">
-              ${otp}
-            </h1>
-
-            <p>
-              This OTP will expire in 5 minutes.
-            </p>
-          </div>
-        `,
-      });
-
-      console.log(
-        "OTP EMAIL SENT SUCCESSFULLY"
-      );
-    } catch (error) {
-      console.log(error);
-
-      throw error;
-    }
-  };
