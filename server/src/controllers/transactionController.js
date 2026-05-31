@@ -10,59 +10,72 @@ import {
   removeOTP,
 } from "../services/otpService.js";
 
-import { sendOTPEmail }
-from "../services/mailService.js";
+import { sendOTPEmail } from "../services/mailService.js";
 
+// send otp
+export const sendOTP = async(req,res)=>{
 
+try{
 
-// SEND OTP
-export const sendTransferOTP =
-  async (req, res) => {
+console.log("SEND OTP HIT");
 
-console.log("SEND OTP ROUTE HIT");
+const {email}=req.body;
 
-    try {
+console.log(
+"EMAIL RECEIVED:",
+email
+);
 
-      const user =
-        await User.findById(
-          req.user.id
-        );
+if(!email){
 
-      console.log(
-        "Sending OTP to:",
-        user.email
-      );
+return res.status(400).json({
+message:"Email missing"
+});
 
-      const otp = generateOTP(
-        user.email
-      );
+}
 
-      console.log(
-        "Generated OTP:",
-        otp
-      );
-      // SAVE OTP IN DATABASE
-      user.otp = otp;
+const otp=
+Math.floor(
+100000+
+Math.random()*900000
+).toString();
 
-      await user.save();
-      await sendOTPEmail(
-        user.email,
-        otp
-      );
+console.log(
+"OTP GENERATED:",
+otp
+);
 
-      res.status(200).json({
-        message:
-          "OTP sent to email",
-      });
+await sendOTPEmail(
+email,
+otp
+);
 
-    } catch (error) {
-      console.log(error);
+console.log(
+"EMAIL SENT"
+);
 
-      res.status(500).json({
-        message: "Server Error",
-      });
-    }
-  };
+res.json({
+
+message:"OTP Sent"
+
+});
+
+}catch(error){
+
+console.log(
+"OTP ERROR:",
+error
+);
+
+res.status(500).json({
+
+message:error.message
+
+});
+
+}
+
+};
 
   export const collectPayment =
   async (req, res) => {
