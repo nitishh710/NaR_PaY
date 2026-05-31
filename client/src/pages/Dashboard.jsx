@@ -63,8 +63,7 @@ function Dashboard() {
             "https://narpay.onrender.com/api/wallet/profile",
             {
               headers: {
-                Authorization:
-                  token,
+                Authorization: Bearer <token>,
               },
             }
           );
@@ -88,8 +87,7 @@ function Dashboard() {
             "https://narpay.onrender.com/api/transactions/history",
             {
               headers: {
-                Authorization:
-                  token,
+                Authorization: Bearer <token>,
               },
             }
           );
@@ -127,8 +125,7 @@ const handleSetPin =
           },
           {
             headers: {
-              Authorization:
-                token,
+              Authorization: Bearer <token>,
             },
           }
         );

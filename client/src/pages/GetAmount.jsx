@@ -72,8 +72,7 @@ function GetAmount() {
             },
             {
               headers: {
-                Authorization:
-                  token,
+                Authorization: Bearer <token>,
               },
             }
           );

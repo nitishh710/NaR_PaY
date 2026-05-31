@@ -28,8 +28,7 @@ function Profile() {
             { pin },
             {
               headers: {
-                Authorization:
-                  token,
+                Authorization: Bearer <token>,
               },
             }
           );

@@ -41,8 +41,7 @@ function History() {
             "https://narpay.onrender.com/api/transactions/history",
             {
               headers: {
-                Authorization:
-                  token,
+                Authorization: Bearer <token>,
               },
             }
           );

@@ -18,6 +18,9 @@ from "../services/mailService.js";
 // SEND OTP
 export const sendTransferOTP =
   async (req, res) => {
+
+console.log("SEND OTP ROUTE HIT");
+
     try {
 
       const user =

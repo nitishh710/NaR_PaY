@@ -63,8 +63,7 @@ function Transfer() {
           `https://narpay.onrender.com/api/wallet/search/${receiverWalletId}`,
           {
             headers: {
-              Authorization:
-                token,
+              Authorization: Bearer <token>,
             },
           }
         );
@@ -84,45 +83,69 @@ function Transfer() {
   };
 
   // SEND OTP
-  const sendOTP = async () => {
-    try {
-      if (!amount || amount <= 0) {
-        toast.error(
-          "Enter valid amount"
-        );
-        return;
-      }
+const sendOTP = async () => {
 
-      const token =
-        localStorage.getItem(
-          "token"
-        );
+try {
 
-      await axios.post(
-        "https://narpay.onrender.com/api/transactions/send-otp",
-        {},
-        {
-          headers: {
-            Authorization:
-              token,
-          },
-        }
-      );
+if (!amount || amount <= 0) {
 
-      setShowOTPBox(true);
+toast.error(
+"Enter valid amount"
+);
 
-      // LOCK AMOUNT
-      setAmountLocked(true);
+return;
 
-      toast.success(
-        "OTP Sent"
-      );
-    } catch (error) {
-      toast.error(
-        "Failed to send OTP"
-      );
-    }
-  };
+}
+
+const token =
+localStorage.getItem(
+"token"
+);
+
+const user =
+JSON.parse(
+localStorage.getItem(
+"user"
+)
+);
+
+await axios.post(
+
+"https://narpay.onrender.com/api/transactions/send-otp",
+
+{
+email:user.email
+},
+
+{
+headers:{
+Authorization:
+`Bearer ${token}`
+}
+}
+
+);
+
+setShowOTPBox(true);
+
+setAmountLocked(true);
+
+toast.success(
+"OTP Sent"
+);
+
+}catch(error){
+
+console.log(error);
+
+toast.error(
+error.response?.data?.message ||
+"Failed to send OTP"
+);
+
+}
+
+};
 
   // TRANSFER MONEY
   const handleTransfer =
@@ -144,8 +167,7 @@ function Transfer() {
             },
             {
               headers: {
-                Authorization:
-                  token,
+                Authorization: Bearer <token>,
               },
             }
           );
@@ -173,34 +195,55 @@ function Transfer() {
     };
 
   // FORGOT PIN OTP
-  const sendResetOTP =
-    async () => {
-      try {
-        const token =
-          localStorage.getItem(
-            "token"
-          );
+const sendResetOTP = async()=>{
 
-        await axios.post(
-          "https://narpay.onrender.com/api/transactions/send-otp",
-          {},
-          {
-            headers: {
-              Authorization:
-                token,
-            },
-          }
-        );
+try{
 
-        toast.success(
-          "Reset OTP Sent"
-        );
-      } catch (error) {
-        toast.error(
-          "Failed to send reset OTP"
-        );
-      }
-    };
+const token=
+localStorage.getItem(
+"token"
+);
+
+const user=
+JSON.parse(
+localStorage.getItem(
+"user"
+)
+);
+
+await axios.post(
+
+"https://narpay.onrender.com/api/transactions/send-otp",
+
+{
+email:user.email
+},
+
+{
+headers:{
+Authorization:
+`Bearer ${token}`
+}
+}
+
+);
+
+toast.success(
+"Reset OTP Sent"
+);
+
+}catch(error){
+
+console.log(error);
+
+toast.error(
+error.response?.data?.message ||
+"Failed to send reset OTP"
+);
+
+}
+
+};
 
   // RESET PIN
   const resetPin =
@@ -219,8 +262,7 @@ function Transfer() {
           },
           {
             headers: {
-              Authorization:
-                token,
+              Authorization: Bearer <token>,
             },
           }
         );
